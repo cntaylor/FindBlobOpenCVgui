@@ -1,11 +1,11 @@
 name: guiOpenCVblob
 channels:
   - defaults
-  - conda-forge
+  #- conda-forge
 dependencies:
   - python=3.8
   - opencv   #includes numpy
-  - kivy
+  - pillow # For displaying images in tkinter
   # These ones are not required, but I sure like them
   - ipython
   - pylint
