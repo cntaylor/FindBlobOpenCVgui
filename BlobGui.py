@@ -2,11 +2,12 @@ import cv2
 import threading
 from queue import Queue
 
-from PIL import Image
-from PIL import ImageTk
+import PIL.Image
+import PIL.ImageTk
 import tkinter as tk
 import sys
 
+#TODO:  Finish video display:  (https://solarianprogrammer.com/2018/04/21/python-opencv-show-video-tkinter-window/)
 class CaptureThread:
     def __init__(self, out_queue, vid_num=0):
         self.vc = cv2.VideoCapture(vid_num)
@@ -48,11 +49,10 @@ if __name__ == "__main__":
 
     #Take the image and turn it into something tkinter can use
     image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    tmp_im = Image.fromarray(image)
-    disp_im = ImageTk.PhotoImage(tmp_im)
+    tmp_im = PIL.Image.fromarray(image)
+    disp_im = PIL.ImageTk.PhotoImage(tmp_im)
 
     im_spot = tk.Label(image=disp_im)
-    im_spot.image = disp_im
     im_spot.grid(column=0, row=0)
     window.mainloop()
 
